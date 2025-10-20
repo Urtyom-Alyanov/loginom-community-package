@@ -1,0 +1,15 @@
+{
+  "version": "7.2.9",
+  "urls": {
+    "linux": "https://dl.loginom.ru/LoginomCE/loginom-community-7.2.9_linux.tar.gz?Expires=1761201534&Signature=UhrCXzxje5W6g00Emv5N3S36RAhKqOVUB44VE8KB6ikzST5EIQob-t~Dm6KIkJsu7xCbPbiwtk1XguC44qKtubFT-qqxYltlvcBF8CplkLMKb-9O0~~N0VSsU17HkcxK2Nh~qNzcD0tDAekLFWw94NNCZv3UKAacCy22wlH1kC~Lt6W5UuIwrEVtFGfAyoDfNNxpn1V6Uxorx8njI4~jZeHK4kTz9zS7SN39PeZrJ-kMGb9LSq0kqsZEEdwl7AJhBry7gc9PDyXkUnVYFbaD2yvnje00Q7Vo6NVa1Q-AgjK72M5pQYDxj1ysQQwa5-SqE80DciXRLHf5La3QL6rnJQ__&Key-Pair-Id=APKAJLCDRQRLK2QURM3Q",
+    "windows": "https://dl.loginom.ru/LoginomCE/LoginomCommunity_7.2.9_windows.zip?Expires=1761201534&Signature=QxhLZbJjrnQTI5PtkB4~-k~Mfw8cMWVA0uhzNULpRG0lTte4-1Ke5-xpbLSI2-Gf71Z4WNzdYIHp4~LMMS-y61R~15y86xxIoOe-tBbpMsmysbKoPIqFQU3ehbMM-0eg0ANrshqFfXwYiiu9F91HqNvQvAndzY2AGuIMBLgWG9JQn-1bxFcQ1xZQgkyWF5Kp2J46tL8VzSKTuE5bbTYuNFstyKgn8SywtzMAjgZ1Q~xdtm3p0o5h-irSwqAXNi2ap2HRvUrcmFjG6ritZWpGs3czX7TrWRRakL2lCaTZXpA4w59G4hSLEdV5jH7sDeM-qatgvWNwHAlEeBbkpIYQNA__&Key-Pair-Id=APKAJLCDRQRLK2QURM3Q"
+  },
+  "sha256_nix": {
+    "linux": "0g194q3czvfd41145hab0ifn286f4xsk952i2gz1kr85zljkfkmg",
+    "windows": "04pylbw6nfs84068yyjxw9pxbq40hcyms1gayhyfx95q2kb72ivy"
+  },
+  "sha256": {
+    "linux": "af4e3725fd05e519fe135194347527ce20615d044bc1424220cdedcf0626293c",
+    "windows": "7e4771d614b8a4ee3cf4ea055d3d8380e0d56fe25d7a8f0c20483b6bf8a2fe12"
+  }
+}
