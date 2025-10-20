@@ -20,6 +20,7 @@
           src = pkgs.fetchurl {
             url = srcInfo.urls.linux;
             sha256 = srcInfo.sha256_nix.linux;
+            name = "loginom-community-${srcInfo.version}_linux.tar.gz";
           };
 
           dontUnpack = false;
