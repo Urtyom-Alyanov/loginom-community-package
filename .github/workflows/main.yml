@@ -1,0 +1,34 @@
+# .github/workflows/update.yml
+name: Auto-update Loginom download links
+
+on:
+  schedule:
+    - cron: "0 */70 * * *"  # каждые 70 часов
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v30
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update src.json
+        run: ./update.sh
+
+      - name: Generate PKGBUILD
+        run: ./generate-pkgbuild.sh
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add src.json PKGBUILD
+          git commit -m "chore: auto-update Loginom to $(jq -r .version src.json)" || echo "No changes"
+          git push
