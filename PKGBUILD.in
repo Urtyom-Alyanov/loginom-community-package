@@ -1,0 +1,51 @@
+# PKGBUILD.in
+pkgname=loginom-community
+pkgver=@VERSION@
+pkgrel=1
+pkgdesc="Loginom Community Edition — low-code data analytics platform"
+arch=('x86_64')
+url="https://loginom.ru"
+license=('custom:unfree')
+depends=('glibc' 'gtk3' 'libgl' 'libx11' 'libxss' 'nss' 'alsa-lib' 'libxcomposite' 'libxdamage')
+source=("loginom-community-@VERSION@_linux.tar.gz::@URL@")
+sha256sums=('@SHA256@')
+
+prepare() {
+  # Убедимся, что исполняемый файл имеет правильные права
+  chmod +x "$srcdir/loginom-community/loginom"
+}
+
+package() {
+  # Установка бинарника и файлов
+  install -d "$pkgdir"/opt/loginom
+  cp -r "$srcdir/loginom-community"/* "$pkgdir"/opt/loginom/
+
+  # Символическая ссылка в PATH
+  install -d "$pkgdir"/usr/bin
+  ln -s /opt/loginom/loginom "$pkgdir"/usr/bin/loginom
+
+  # Иконка
+  install -d "$pkgdir"/usr/share/icons/hicolor/256x256/apps
+  install -Dm644 "$pkgdir"/opt/loginom/loginom.png \
+    "$pkgdir"/usr/share/icons/hicolor/256x256/apps/loginom.png
+
+  # .desktop файл
+  install -d "$pkgdir"/usr/share/applications
+  cat > "$pkgdir"/usr/share/applications/loginom.desktop <<EOF
+[Desktop Entry]
+Name=Loginom Community
+Comment=Low-code data analytics platform
+Exec=/opt/loginom/loginom %U
+Icon=loginom
+Terminal=false
+Type=Application
+Categories=Science;DataVisualization;Development;
+StartupWMClass=Loginom
+MimeType=
+Keywords=analytics;data;low-code;
+EOF
+
+  # Лицензия
+  install -Dm644 "$pkgdir"/opt/loginom/LICENSE.txt \
+    "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+}
