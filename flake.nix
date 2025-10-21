@@ -31,6 +31,7 @@
             mkdir -p $out/opt/loginom
             cp -r ./* $out/opt/loginom/
 
+            mkdir -p $out/bin
             makeWrapper $out/opt/loginom/loginom $out/bin/loginom \
                 --prefix LD_LIBRARY_PATH : ${with pkgs; lib.makeLibraryPath [
                   stdenv.cc.cc.lib
@@ -52,9 +53,6 @@
                   systemd
                   expat
                 ]}
-
-            mkdir -p $out/bin
-            ln -s $out/opt/loginom/loginom $out/bin/loginom
           
             mkdir -p $out/share/icons/hicolor/256x256/apps
             cp $out/opt/loginom/loginom.png $out/share/icons/hicolor/256x256/apps/loginom.png
