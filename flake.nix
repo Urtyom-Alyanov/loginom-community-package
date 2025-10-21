@@ -31,12 +31,31 @@
             mkdir -p $out/opt/loginom
             cp -r ./* $out/opt/loginom/
 
+            makeWrapper $out/opt/loginom/loginom $out/bin/loginom \
+                --prefix LD_LIBRARY_PATH : ${with pkgs; lib.makeLibraryPath [
+                  stdenv.cc.cc.lib
+                  glib
+                  nss
+                  nspr
+                  alsa-lib
+                  dbus
+                  atkmm
+                  at-spi2-core
+                  gtk3
+                  libx11
+                  xorg.libXcomposite
+                  xorg.libXdamage
+                  libxext
+                  libxfixes
+                  xorg.xrandr
+                  libxkbcommon
+                  systemd
+                  expat
+                ]}
+
             mkdir -p $out/bin
             ln -s $out/opt/loginom/loginom $out/bin/loginom
           
-            mkdir -p $out/share/icons/hicolor/256x256/apps
-            cp $out/opt/loginom/loginom.png $out/share/icons/hicolor/256x256/apps/loginom.png
-
             mkdir -p $out/share/icons/hicolor/256x256/apps
             cp $out/opt/loginom/loginom.png $out/share/icons/hicolor/256x256/apps/loginom.png
 
@@ -61,6 +80,8 @@ EOF
 
             runHook postInstall
           '';
+
+          nativeBuildInputs = [ pkgs.makeWrapper ];
 
           meta = with pkgs.lib; {
             description = "Loginom Community — low-code data analytics platform";
