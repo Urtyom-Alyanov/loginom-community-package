@@ -22,7 +22,6 @@ FORM_DATA = {
     "status-field": "Студент",
     "os-field": "Linux",
     "sub_checkbox": "1",
-    "secret1": "",
 }
 
 def extract_cookies_from_playwright(context):
@@ -50,6 +49,16 @@ def get_download_url():
                 secret2 = el.get_attribute("value")
         if not secret2:
             print("❌ Не удалось извлечь secret2", file=sys.stderr)
+            browser.close()
+            sys.exit(1)
+        
+        secret1 = page.evaluate("() => window.secret1")
+        if not secret2 or secret2 == "undefined":
+            el = page.query_selector('input[name="secret1"]')
+            if el:
+                secret1 = el.get_attribute("value")
+        if not secret1:
+            print("❌ Не удалось извлечь secret1", file=sys.stderr)
             browser.close()
             sys.exit(1)
 
@@ -89,6 +98,7 @@ def get_download_url():
     # 6. Подготавливаем данные формы
     form_data = FORM_DATA.copy()
     form_data["secret2"] = secret2
+    form_data["secret1"] = secret1
     form_data["versiya_loginomce"] = versiya_loginomce
 
     # 7. Отправляем запрос на получение ссылки
