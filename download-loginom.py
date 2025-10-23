@@ -21,7 +21,7 @@ FORM_DATA = {
     "client_referrer": "https://www.google.com/",
     "status-field": "Студент",
     "os-field": "Linux",
-    "sub_checkbox": "1",
+    "privacy_policy": "1",
 }
 
 def extract_cookies_from_playwright(context):
