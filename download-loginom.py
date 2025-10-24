@@ -53,7 +53,7 @@ def get_download_url():
             sys.exit(1)
         
         secret1 = page.evaluate("() => window.secret1")
-        if not secret2 or secret2 == "undefined":
+        if not secret1 or secret1 == "undefined":
             el = page.query_selector('input[name="secret1"]')
             if el:
                 secret1 = el.get_attribute("value")
