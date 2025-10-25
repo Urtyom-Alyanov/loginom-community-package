@@ -41,36 +41,37 @@ def get_download_url():
         page.goto("https://loginom.ru/download")
         page.wait_for_timeout(2000)
 
-        # 2. Получаем secret2
+        # 2. Получаем secret1
         secret2 = page.evaluate("() => window.secret2")
+
         if not secret2 or secret2 == "undefined":
             el = page.query_selector('input[name="secret2"]')
             if el:
                 secret2 = el.get_attribute("value")
-        if not secret2:
-            print("❌ Не удалось извлечь secret2", file=sys.stderr)
-            browser.close()
-            sys.exit(1)
-        
+            else:
+                print("❌ Не удалось извлечь secret2", file=sys.stderr)
+                browser.close()
+                sys.exit(1)
+            
         secret1 = page.evaluate("() => window.secret1")
         if not secret1 or secret1 == "undefined":
             el = page.query_selector('input[name="secret1"]')
             if el:
                 secret1 = el.get_attribute("value")
-        if not secret1:
-            print("❌ Не удалось извлечь secret1", file=sys.stderr)
-            browser.close()
-            sys.exit(1)
+            else:
+                print("❌ Не удалось извлечь secret1", file=sys.stderr)
+                browser.close()
+                sys.exit(1)
 
-        versiya_loginomce = page.evaluate("() => window.versiya_loginomce")
-        if not versiya_loginomce or versiya_loginomce == "undefined":
+        version = page.evaluate("() => window.versiya_loginomce")
+        if not version or version == "undefined":
             el = page.query_selector('input[name="versiya_loginomce"]')
             if el:
-                versiya_loginomce = el.get_attribute("value")
-        if not versiya_loginomce:
-            print("❌ Не удалось извлечь версию Loginom CE", file=sys.stderr)
-            browser.close()
-            sys.exit(1)
+                version = el.get_attribute("value")
+            else:
+                print("❌ Не удалось извлечь версию Loginom CE", file=sys.stderr)
+                browser.close()
+                sys.exit(1)
 
         # 3. Извлекаем куки сессии
         cookies = extract_cookies_from_playwright(context)
@@ -97,9 +98,9 @@ def get_download_url():
 
     # 6. Подготавливаем данные формы
     form_data = FORM_DATA.copy()
-    form_data["secret2"] = secret2
     form_data["secret1"] = secret1
-    form_data["versiya_loginomce"] = versiya_loginomce
+    form_data["secret2"] = secret2
+    form_data["versiya_loginomce"] = version
 
     # 7. Отправляем запрос на получение ссылки
     resp = session.post(
@@ -122,7 +123,6 @@ def get_download_url():
         
     url_linux = data.get("data", {}).get("loginom_ce_linux")
     url_windows = data.get("data", {}).get("loginom_ce_windows")
-    version = versiya_loginomce
     if not url_linux:
         print("❌ Не найдена ссылка на Linux-версию", file=sys.stderr)
         sys.exit(1)
