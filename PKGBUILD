@@ -17,17 +17,34 @@ prepare() {
 
 package() {
   # Установка бинарника и файлов
-  install -d "$pkgdir"/opt/loginom
-  cp -r "$srcdir/loginom-community"/* "$pkgdir"/opt/loginom/
+  install -d "$pkgdir"/opt/loginom-community
+  cp -r "$srcdir/loginom-community"/* "$pkgdir"/opt/loginom-community/
 
   # Символическая ссылка в PATH
   install -d "$pkgdir"/usr/bin
-  ln -s /opt/loginom/loginom "$pkgdir"/usr/bin/loginom
+  ln -s /opt/loginom-community/loginom "$pkgdir"/usr/bin/loginom-community
 
-  # Иконка
+  # Иконки (для MIME-типа и приложения)
   install -d "$pkgdir"/usr/share/icons/hicolor/256x256/apps
-  install -Dm644 "$pkgdir"/opt/loginom/loginom.png \
+  install -Dm644 "$pkgdir"/opt/loginom-community/loginom.png \
     "$pkgdir"/usr/share/icons/hicolor/256x256/apps/loginom.png
+
+  install -d "$pkgdir"/usr/share/icons/hicolor/128x128/mimetypes
+  install -Dm644 "$pkgdir"/opt/loginom-community/loginom-lgp.png \
+    "$pkgdir"/usr/share/icons/hicolor/128x128/mimetypes/loginom-lgp.png
+
+  # MIME-тип
+  install -d "$pkgdir"/usr/share/mime/packages
+  cat > "$pkgdir"/usr/share/mime/packages/application-x-loginom-lgp.xml <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-loginom-lgp">
+    <comment>Loginom Package</comment>
+    <glob pattern="*.lgp"/>
+    <icon name="loginom-lgp"/>
+  </mime-type>
+</mime-info>
+EOF
 
   # .desktop файл
   install -d "$pkgdir"/usr/share/applications
@@ -35,17 +52,17 @@ package() {
 [Desktop Entry]
 Name=Loginom Community
 Comment=Low-code data analytics platform
-Exec=/opt/loginom/loginom %U
+Exec=/opt/loginom-community/loginom %f
 Icon=loginom
 Terminal=false
 Type=Application
 Categories=Science;DataVisualization;Development;
 StartupWMClass=Loginom
-MimeType=
-Keywords=analytics;data;low-code;
+MimeType=application/x-loginom-lgp;
+Keywords=analytics;data;low-code;lgp;
 EOF
 
   # Лицензия
-  install -Dm644 "$pkgdir"/opt/loginom/LICENSE.txt \
+  install -Dm644 "$pkgdir"/opt/loginom-community/LICENSE.txt \
     "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
 }
