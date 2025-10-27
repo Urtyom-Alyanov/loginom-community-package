@@ -7,7 +7,7 @@ arch=('x86_64')
 url="https://loginom.ru"
 license=('custom:unfree')
 depends=('glibc' 'gtk3' 'libgl' 'libx11' 'libxss' 'nss' 'alsa-lib' 'libxcomposite' 'libxdamage')
-source=("loginom-community-7.2.9_linux.tar.gz::https://dl.loginom.ru/LoginomCE/loginom-community-7.2.9_linux.tar.gz?Expires=1761699108@URL@Signature=FyvXQeeLBpVSTmo0MmF54twQKPeV7nCaVlMpG5WlD0DcxsNzXXLRduHRCPzcxwsbvo5nYDwJoz5YgQ~xasd7jZ-fLGvmsQXLFaA6SY5vA-UDLnbo2IeTF18Qk7IFsNqwfiTSGmlzX2GAiWxG6JPKJi-WiAUU78rC8vM~C4YTXG7ArD7iCLVkpyJwpRHQex9aDOkn2xArwx3a0BsSE6cq0AzjWvW-gN3358d~No8ZE~PBnioQ5rj6pCvbwXEfVwu6jVd1l3bfVNCwUAjjT9igWZDGVt-tabD9sustGBv6ZLFVA0~SWuYZVXBEu700VXlaRlASSHjVGcH~BK8EScRZNg__@URL@Key-Pair-Id=APKAJLCDRQRLK2QURM3Q")
+source=("loginom-community-7.2.9_linux.tar.gz::https://dl.loginom.ru/LoginomCE/loginom-community-7.2.9_linux.tar.gz?Expires=1761785626@URL@Signature=nXu60TXlTXdujt8v1mRc~V5zS9J1WtS0M7t7M0dE0Huq1qriELFGTah9a6h~kst0CASC~ipIRWQ2OnSqmQoTxaeuIFn2pgAT1sIMuc73ZsXJtKQ8W8ANVeY1Gj-XDazFqPsX-K7xdcgq1MNGGg6geEQ4jkT3DAYquzGfvBR8a8031J8HYTZyOVpWfeUBcsnUhVUPWp3a7W~qD8e~3OS0jtOr5~~KtIF1udKlgyps3rAKHS-cn~6LQDGNkBmVUqxy0ht8RMU4YOZPsHgRsWoaFGUX-GZxnVkz-WMMNhRaDKGe10lXXQP0SyHBJXJ7O2KIBswsc~om3VPk4dJac7n3Ow__@URL@Key-Pair-Id=APKAJLCDRQRLK2QURM3Q")
 sha256sums=('af4e3725fd05e519fe135194347527ce20615d044bc1424220cdedcf0626293c')
 
 prepare() {
