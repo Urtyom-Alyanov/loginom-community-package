@@ -7,7 +7,7 @@ arch=('x86_64')
 url="https://loginom.ru"
 license=('custom:unfree')
 depends=('glibc' 'gtk3' 'libgl' 'libx11' 'libxss' 'nss' 'alsa-lib' 'libxcomposite' 'libxdamage')
-source=("loginom-community-7.2.9_linux.tar.gz::https://dl.loginom.ru/LoginomCE/loginom-community-7.2.9_linux.tar.gz?Expires=1761785626@URL@Signature=nXu60TXlTXdujt8v1mRc~V5zS9J1WtS0M7t7M0dE0Huq1qriELFGTah9a6h~kst0CASC~ipIRWQ2OnSqmQoTxaeuIFn2pgAT1sIMuc73ZsXJtKQ8W8ANVeY1Gj-XDazFqPsX-K7xdcgq1MNGGg6geEQ4jkT3DAYquzGfvBR8a8031J8HYTZyOVpWfeUBcsnUhVUPWp3a7W~qD8e~3OS0jtOr5~~KtIF1udKlgyps3rAKHS-cn~6LQDGNkBmVUqxy0ht8RMU4YOZPsHgRsWoaFGUX-GZxnVkz-WMMNhRaDKGe10lXXQP0SyHBJXJ7O2KIBswsc~om3VPk4dJac7n3Ow__@URL@Key-Pair-Id=APKAJLCDRQRLK2QURM3Q")
+source=("loginom-community-7.2.9_linux.tar.gz::https://dl.loginom.ru/LoginomCE/loginom-community-7.2.9_linux.tar.gz?Expires=1761871564@URL@Signature=e6KD0Ex8adatwOETiz0In7kDIiEmZH52vfEwmfuch3pke6lOb5bO3LZFJp1QBmxLaR~ImQ6W8av33gLaI0wwEvN4ZBWlRpheTFeC0r9t-IoWcmPRcmo1F1EXlfBDuolks1RieuFCzlAtgupS66YhMp5jofyiSgoRxO6TKdYDkBiNcBiRiILVuEuNLbJvxK1xX-vb-H6dKQHzbru6D-CnSlYXOvDcIsTXubw-R7RQu04weFYVIq-ue3WaZaStbUPKoCbXImsyhKgBx7JYLhgjLjeJryIOt7kO7SpDCIbSXKv1ZGFnP-NrUiTW2Ot9TS3lh1UXhNIUOYPk4Ym5e0VJyQ__@URL@Key-Pair-Id=APKAJLCDRQRLK2QURM3Q")
 sha256sums=('af4e3725fd05e519fe135194347527ce20615d044bc1424220cdedcf0626293c')
 
 prepare() {
@@ -16,7 +16,7 @@ prepare() {
 }
 
 package() {
-  # Установка бинарника и файлов
+ # Установка бинарника и файлов
   install -d "$pkgdir"/opt/loginom-community
   cp -r "$srcdir/loginom-community"/* "$pkgdir"/opt/loginom-community/
 
