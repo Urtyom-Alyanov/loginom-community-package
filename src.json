@@ -1,8 +1,8 @@
 {
   "version": "7.2.9",
   "urls": {
-    "linux": "https://dl.loginom.ru/LoginomCE/loginom-community-7.2.9_linux.tar.gz?Expires=1761871564&Signature=e6KD0Ex8adatwOETiz0In7kDIiEmZH52vfEwmfuch3pke6lOb5bO3LZFJp1QBmxLaR~ImQ6W8av33gLaI0wwEvN4ZBWlRpheTFeC0r9t-IoWcmPRcmo1F1EXlfBDuolks1RieuFCzlAtgupS66YhMp5jofyiSgoRxO6TKdYDkBiNcBiRiILVuEuNLbJvxK1xX-vb-H6dKQHzbru6D-CnSlYXOvDcIsTXubw-R7RQu04weFYVIq-ue3WaZaStbUPKoCbXImsyhKgBx7JYLhgjLjeJryIOt7kO7SpDCIbSXKv1ZGFnP-NrUiTW2Ot9TS3lh1UXhNIUOYPk4Ym5e0VJyQ__&Key-Pair-Id=APKAJLCDRQRLK2QURM3Q",
-    "windows": "https://dl.loginom.ru/LoginomCE/LoginomCommunity_7.2.9_windows.zip?Expires=1761871564&Signature=Ongfonh26CLsANWokkkSD1JrvVCLh8JufwWYoofFPUsIaC8gcZD~vIPcgEX23ctMY0H5YdQS3Z0XNQSDYK9b-qJBdLwRdgWu3PelLqJha1l40RDqA9Nww~HBG~JzTXjSzueD9~jcKwV7ngV68FiO6y2ADnuZaxqz6mZJ-Fy9j0qiH9PSowFHrbrGmEDaUkRXFaUhFoIdaaR-53eKqPSRFxZQXLqL2aA174wjYWWhKlsnvjHEn-vqG3cMuujGR2TbQRiB~0N70lSYlrBPWPwpsbajBWDzyHXgvkF2fCzxdvWiSKAmtMqfOjYy1imBgbmQykRoMOyag7gOo2EPwgbSaA__&Key-Pair-Id=APKAJLCDRQRLK2QURM3Q"
+    "linux": "https://dl.loginom.ru/LoginomCE/loginom-community-7.2.9_linux.tar.gz?Expires=1761958240&Signature=Qfgt0tbmW68xh5ZcQNYjUslb3wfQiqndNK6EciwL4d7HrroVZCan6h6AEqy4dN24I0IDTCXKgNaqz3I6egfqj355zAV4irqYVi4CijsgCT3QuXQFonCDX35lUNjDm6BCPeo3I6c4EftdiRaz~wLhQ-PW4A362An07PuukGUd1WONGLVSmTbQRR3JBU2j3bXfQq0wgFaOnn1vCNw~Uk7gZ4C~qIdAjYpvDAJ5wbJ2~3zRw4Bj64OCUCRRjpe6l0dUD37RvOMSdWbsuhhUgpbDEcQ-ExduNOwuqlerMzYJGRn2K4eH-MVLw9uqzmDwpWrnRG-mAHQfwJjZDQw7gqlNsQ__&Key-Pair-Id=APKAJLCDRQRLK2QURM3Q",
+    "windows": "https://dl.loginom.ru/LoginomCE/LoginomCommunity_7.2.9_windows.zip?Expires=1761958240&Signature=EHohUC4XSRgPFBxmsiQjuVEWZr4yBQNNbHibM1wxIWUsKJCTQRAhIa1E1cNUdQ8NcyAuBGcpLBazyYC~0VZUdr9mFNNfgM3tYc4rXL2guGGnjUGp6G1dyvpCYyzYgqsn2vcQpeDAoT1my1bo3PCJumqohW1j7FQ1EN0DuN0DFbrxZj27LCcxRI~tG9b1jk6BG5CYZ5fXOBjqHTgnpi50H~a2RDArvbq8i3dzNqb9NudCsG7xPbuBqYDNxgCEhBn8bYU7be3qAkowwyRDZYtzgw3D70qD38EXdXqVpxamkiAGTlCeBXp67Vu8PtORjJlHsf4l0ziauGh-ZYjcP5FIFA__&Key-Pair-Id=APKAJLCDRQRLK2QURM3Q"
   },
   "sha256_nix": {
     "linux": "0g194q3czvfd41145hab0ifn286f4xsk952i2gz1kr85zljkfkmg",
