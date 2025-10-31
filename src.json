@@ -1,15 +1,15 @@
 {
-  "version": "7.2.9",
+  "version": "7.3.0-rc",
   "urls": {
-    "linux": "https://dl.loginom.ru/LoginomCE/loginom-community-7.2.9_linux.tar.gz?Expires=1762044627&Signature=YrH3XD9B63s4I5I0xU1zoI7b2elwyp-6UiirEu81Bg7YkneJ4HdTHfHnHUfG5YOlASNmdZ~-3Nd~YnIf~Gx1bOGKsg4CFNcziA51bIwx~iyoOgoNE7Xe69LTIMZ0MrvuNl9EtOvtetMaEOhDj~1w4jq0fuVLsjNvkh5wlOXRMY46u0VBIlnjRgc7Y-NMHZkKS5e7AEi1Y24OEfOOzSFZiNWKpNEvvt3-W~0Upr7nBuWktaxL~mwkUeF2moDV7rdt2c3jFXO48rGhKEtzb8sr4eEyM7maSXdZlF-FzU6VfQWwf1DquxV8nVFXRwk0mia356Siu6-oP3LUGRASDucazQ__&Key-Pair-Id=APKAJLCDRQRLK2QURM3Q",
-    "windows": "https://dl.loginom.ru/LoginomCE/LoginomCommunity_7.2.9_windows.zip?Expires=1762044626&Signature=OdrFznfvdzErHHV3F4bcUXP5BwznzlUKjJxe~uA8z8LsIHMMxXKegNUqoaXm-bH3zTyyUEd-X5TyFMwHRZUPaabABBP-pIbphO~Wn8u0HFhgRnRPQ9yWJc4DVbkUvupHFVlctOGmSje61AEXngI5OhkTVu9vDTXtLUB7eCyNFAri3khNT9N-HUWBtpnXIG41yuuc4mgoNiShs1-0tTKAUuLFBKX6QS6A3tnZIMW2yk0iePNQOrLCNWMhLncKzo4idIDmGinJh70wu1sBMLL6rqs3nBfRVtXQFxVajzB~L6FrtGUFwyRZfFazj6N1AZV8NcDS9rEnZnVvwgj3S6CzoA__&Key-Pair-Id=APKAJLCDRQRLK2QURM3Q"
+    "linux": "https://dl.loginom.ru/LoginomCE/loginom-community-7.3.0-rc_linux.tar.gz?Expires=1762130898&Signature=JAd0IAz5BUcjjI2wfzmMD2sPxrSXp9wOTy-Aiz8cihgk08rtAtHNVJqXei0~q84ulZsc6Tb~PvnoQVxgNGoksw-16NGqy2P68j9TscdMthTUZVnS1BqHNknP16WAO~mQ04BNuXIWZADntRe~trTntWx6vr1wDLYDj2keVn8ZTYmHG0f8QbIVgkSvZqsYc6X5CKX413uIlFRVW70mFpanpHpJhIjE~sAo2mgtxvbc7Kd0YD7O~HxsUmBqZ7hIYzHL3m5LVdcKb8aYTynUSktArrYVUDN6lQ-R6bC4z~UdJF05hlDfynFKFNTLkOklwa14CUqGIJcx-6gTf-GB7-ZMfA__&Key-Pair-Id=APKAJLCDRQRLK2QURM3Q",
+    "windows": "https://dl.loginom.ru/LoginomCE/LoginomCommunity_7.3.0-rc_windows.zip?Expires=1762130898&Signature=SSgsGInJ7ITBVHW1sJjSWVDY6H49wUimBAfBCxiNHLwQRAvmXcjjBdmEN6~-dLdhbduQOGWOBmfMfPqFhiHPanj0bunBk6q3EW5sZK-W3PCM7dsa-7CvBGyxlAFBIce-k1ANKybDzRlnctmuTt86tURzRwMMij6wCtrgJL5wUpHgJl95apWax6pVg~a50SSEENpMrf9nH7eJiIXHXoXgCOwh7iaxjRoddnhQojvzmcxVzQ9HFAsW0qFyu~cLtVeVlxi1rRjlpp31swgcZdDWwCbQ4mLi~3eElRbS4TlO43~W3HuGyxdMyibxGWgUUhWsplb8iyQOZ1xLZyipqMTzUQ__&Key-Pair-Id=APKAJLCDRQRLK2QURM3Q"
   },
   "sha256_nix": {
-    "linux": "0g194q3czvfd41145hab0ifn286f4xsk952i2gz1kr85zljkfkmg",
-    "windows": "04pylbw6nfs84068yyjxw9pxbq40hcyms1gayhyfx95q2kb72ivy"
+    "linux": "0d98cwm9phngssx6yfyz5nnjfazb4mia1vzx7v81ii2dhvjzn0m8",
+    "windows": "1p75sv0dzbk3a1ls462vxz7572xj644amgmmn5nk2cbmlgkr3dp7"
   },
   "sha256": {
-    "linux": "af4e3725fd05e519fe135194347527ce20615d044bc1424220cdedcf0626293c",
-    "windows": "7e4771d614b8a4ee3cf4ea055d3d8380e0d56fe25d7a8f0c20483b6bf8a2fe12"
+    "linux": "a802fbe5864dc418d03efdefa06225eb2b27ad2ddf3b6fbad6cfc29b2a672835",
+    "windows": "e7b691e7a37531316db1b5beaa0831b28b53ceef5b18a2695063aedfc0d6e5dc"
   }
 }
