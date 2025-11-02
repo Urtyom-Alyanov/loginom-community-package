@@ -1,8 +1,8 @@
 {
   "version": "7.3.0-rc",
   "urls": {
-    "linux": "https://dl.loginom.ru/LoginomCE/loginom-community-7.3.0-rc_linux.tar.gz?Expires=1762130898&Signature=JAd0IAz5BUcjjI2wfzmMD2sPxrSXp9wOTy-Aiz8cihgk08rtAtHNVJqXei0~q84ulZsc6Tb~PvnoQVxgNGoksw-16NGqy2P68j9TscdMthTUZVnS1BqHNknP16WAO~mQ04BNuXIWZADntRe~trTntWx6vr1wDLYDj2keVn8ZTYmHG0f8QbIVgkSvZqsYc6X5CKX413uIlFRVW70mFpanpHpJhIjE~sAo2mgtxvbc7Kd0YD7O~HxsUmBqZ7hIYzHL3m5LVdcKb8aYTynUSktArrYVUDN6lQ-R6bC4z~UdJF05hlDfynFKFNTLkOklwa14CUqGIJcx-6gTf-GB7-ZMfA__&Key-Pair-Id=APKAJLCDRQRLK2QURM3Q",
-    "windows": "https://dl.loginom.ru/LoginomCE/LoginomCommunity_7.3.0-rc_windows.zip?Expires=1762130898&Signature=SSgsGInJ7ITBVHW1sJjSWVDY6H49wUimBAfBCxiNHLwQRAvmXcjjBdmEN6~-dLdhbduQOGWOBmfMfPqFhiHPanj0bunBk6q3EW5sZK-W3PCM7dsa-7CvBGyxlAFBIce-k1ANKybDzRlnctmuTt86tURzRwMMij6wCtrgJL5wUpHgJl95apWax6pVg~a50SSEENpMrf9nH7eJiIXHXoXgCOwh7iaxjRoddnhQojvzmcxVzQ9HFAsW0qFyu~cLtVeVlxi1rRjlpp31swgcZdDWwCbQ4mLi~3eElRbS4TlO43~W3HuGyxdMyibxGWgUUhWsplb8iyQOZ1xLZyipqMTzUQ__&Key-Pair-Id=APKAJLCDRQRLK2QURM3Q"
+    "linux": "https://downloads.loginom.com/loginom-community-7.3.0-rc_linux.tar.gz",
+    "windows": "https://downloads.loginom.com/LoginomCommunity_7.3.0-rc_windows.zip"
   },
   "sha256_nix": {
     "linux": "0d98cwm9phngssx6yfyz5nnjfazb4mia1vzx7v81ii2dhvjzn0m8",
