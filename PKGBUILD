@@ -7,7 +7,7 @@ arch=('x86_64')
 url="https://loginom.ru"
 license=('custom:unfree')
 depends=('glibc' 'gtk3' 'libgl' 'libx11' 'libxss' 'nss' 'alsa-lib' 'libxcomposite' 'libxdamage')
-source=("loginom-community-7.3.0_linux.tar.gz::https://storage.yandexcloud.net/private-loginom-ru/LoginomCE/loginom-community-7.3.0-rc_linux.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256@URL@X-Amz-Credential=YCAJEUdCH7bkAv88YafPx0UvQ%2F20251105%2Fru-central1%2Fs3%2Faws4_request@URL@X-Amz-Date=20251105T195039Z@URL@X-Amz-Expires=259200@URL@X-Amz-SignedHeaders=host@URL@response-content-disposition=attachment@URL@X-Amz-Signature=cc2eeb691304e9108e8b1be1532b3f30c8ed8f74dabc272ceb21ad609210f2e5")
+source=("loginom-community-7.3.0_linux.tar.gz::https://storage.yandexcloud.net/private-loginom-ru/LoginomCE/loginom-community-7.3.0-rc_linux.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256@URL@X-Amz-Credential=YCAJEUdCH7bkAv88YafPx0UvQ%2F20251106%2Fru-central1%2Fs3%2Faws4_request@URL@X-Amz-Date=20251106T004902Z@URL@X-Amz-Expires=259200@URL@X-Amz-SignedHeaders=host@URL@response-content-disposition=attachment@URL@X-Amz-Signature=47e8dd9e5cf4b7fe227d25cc83be91a7cddfcba204b95ee29caccf78e85cdb06")
 sha256sums=('a802fbe5864dc418d03efdefa06225eb2b27ad2ddf3b6fbad6cfc29b2a672835')
 
 prepare() {
