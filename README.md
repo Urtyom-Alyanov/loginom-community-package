@@ -39,6 +39,7 @@ makepkg -si
 Есть вероятность, что эта ссылка будет работать и далее, если так и будет то скрипт будет просто ходить на сайт и проверять версию. Ссылки ниже
 
 [Loginom CE 7.3.0-rc для линукса скачать без регистрации и смс](https://downloads.loginom.com/loginom-community-7.3.0-rc_linux.tar.gz)
+
 [Loginom CE 7.3.0-rc для виндовс скачать без регистрации и смс](https://downloads.loginom.com/LoginomCommunity_7.3.0-rc_windows.zip)
 
 ## Лицензия
