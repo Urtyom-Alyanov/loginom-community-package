@@ -58,16 +58,48 @@ jobs:
         if: steps.compare.outputs.changed == 'true'
         run: |
           sudo apt update
-          sudo apt install -y libarchive-tools fakeroot binutils devscripts
-          # Install makepkg by getting it from Arch Linux package
-          curl -O https://raw.githubusercontent.com/ArchLinuxPackages/pacman/master/scripts/makepkg.sh
-          sudo install makepkg.sh /usr/local/bin/makepkg
-          sudo chmod +x /usr/local/bin/makepkg
+          # Install dependencies for building pacman/makepkg
+          sudo apt -q -y install --no-install-recommends \
+            git pkg-config meson gcc libtool libgpgme-dev libarchive-dev ninja-build \
+            libcurl4-openssl-dev libssl-dev curl gettext python3 python3-setuptools \
+            dash gawk ca-certificates fakeroot fakechroot libarchive-tools
+          
+          # Need a more recent version of Meson
+          sudo mkdir -p /usr/local/meson
+          sudo git clone https://github.com/mesonbuild/meson.git /usr/local/meson
+          [ -f /usr/bin/meson ] && {
+            mver=$(/usr/bin/meson --version)
+            sudo mv /usr/bin/meson /usr/bin/meson-${mver}
+          }
+          if [ -f /usr/local/meson/meson.py ]; then
+            sudo ln -s /usr/local/meson/meson.py /usr/bin/meson
+          else
+            echo "ERROR: cannot locate /usr/local/meson/meson.py"
+            exit 1
+          fi
+          
+          # Build and install pacman from source
+          sudo rm -rf pacman
+          git clone https://gitlab.archlinux.org/pacman/pacman.git
+          cd pacman
+          meson setup -Ddoc=disabled build
+          ninja -C build
+          [ -d build ] || {
+            echo "Directory pacman/build does not exist. Exiting."
+            exit 1
+          }
+          cd build
+          grep mirror scripts/libmakepkg/source/git.sh > /dev/null && {
+            cat scripts/libmakepkg/source/git.sh | sed -e "s/---mirror//" > /tmp/git$$
+            cp /tmp/git$$ scripts/libmakepkg/source/git.sh
+            rm -f /tmp/git$$
+          }
+          sudo meson install --no-rebuild --quiet
 
       - name: Build Arch Linux package
         if: steps.compare.outputs.changed == 'true'
         run: |
-          makepkg -sri --noconfirm
+          makepkg --force --log --cleanbuild --noconfirm --nodeps
           ARCH_PACKAGE_FILE=$(ls *.pkg.tar.zst | head -n 1)
           echo "arch_package_file=$ARCH_PACKAGE_FILE" >> $GITHUB_ENV
 
@@ -113,7 +145,6 @@ jobs:
           echo "artifacts_list=$ARTIFACTS_LIST" >> $GITHUB_ENV
 
       - name: Commit and push
-        if: steps.compare.outputs.changed == 'true'
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
