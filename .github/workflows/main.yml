@@ -58,7 +58,11 @@ jobs:
         if: steps.compare.outputs.changed == 'true'
         run: |
           sudo apt update
-          sudo apt install -y libarchive-tools fakeroot binutils
+          sudo apt install -y libarchive-tools fakeroot binutils devscripts
+          # Install makepkg by getting it from Arch Linux package
+          curl -O https://raw.githubusercontent.com/ArchLinuxPackages/pacman/master/scripts/makepkg.sh
+          sudo install makepkg.sh /usr/local/bin/makepkg
+          sudo chmod +x /usr/local/bin/makepkg
 
       - name: Build Arch Linux package
         if: steps.compare.outputs.changed == 'true'
