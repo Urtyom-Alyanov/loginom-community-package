@@ -3,6 +3,7 @@ import json
 import sys
 from playwright.sync_api import sync_playwright
 import requests
+import re
 
 FORM_DATA = {
     "familiya": "Никонов",
@@ -23,6 +24,24 @@ FORM_DATA = {
     "os-field": "Linux",
     "privacy_policy": "1",
 }
+
+def convert_version_for_arch(version_str):
+    """Преобразует версию для совместимости с Arch Linux."""
+    # Заменяем первый дефис на точку (часто используемый способ)
+    # Это работает для случаев вроде "7.3.0-rc", "1.2.3-beta".
+    # Регулярное выражение заменяет первый найденный '-'
+    converted = re.sub(r'-', '.', version_str, count=1)
+    # Можно также заменить на подчёркивание: converted = version_str.replace('-', '_', 1)
+    return converted
+
+def extract_version_from_url(url):
+    """Извлекает версию из URL с помощью регулярного выражения."""
+    # Регулярное выражение ищет loginom-community-<версия>_
+    match = re.search(r'loginom-community-([0-9]+(?:\.[0-9]+)*(?:-[a-zA-Z0-9]+)*)_', url)
+    if match:
+        return convert_version_for_arch(match.group(1))  # Возвращает первую группу (версию)
+    else:
+        return None # Или бросить исключение, если версия не найдена
 
 def extract_cookies_from_playwright(context):
     """Преобразует куки из формата Playwright в dict для requests"""
@@ -127,12 +146,14 @@ def get_download_url():
         print("❌ Не найдена ссылка на Linux-версию", file=sys.stderr)
         sys.exit(1)
 
-    return url_linux, version, url_windows
+    fact_version = extract_version_from_url(url_linux)
+
+    return url_linux, version, fact_version, url_windows
 
 def main():
-    url_linux, version, url_windows = get_download_url()
+    url_linux, version, fact_version, url_windows = get_download_url()
     if "--json" in sys.argv:
-        print(json.dumps({"linux": url_linux, "windows": url_windows, "version": version}))
+        print(json.dumps({"linux": url_linux, "windows": url_windows, "version": version, "fact_version": fact_version}))
     else:
         if "--windows" in sys.argv:
             print(url_windows)

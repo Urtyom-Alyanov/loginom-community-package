@@ -15,7 +15,7 @@ if [ ! -f "$SRC_JSON" ]; then
   exit 1
 fi
 
-VERSION=$(jq -r '.version' "$SRC_JSON")
+VERSION=$(jq -r '.fact_version' "$SRC_JSON")
 URL=$(jq -r '.urls.linux' "$SRC_JSON")
 SHA256=$(jq -r '.sha256.linux' "$SRC_JSON")
 

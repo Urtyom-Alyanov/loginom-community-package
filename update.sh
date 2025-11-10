@@ -7,6 +7,7 @@ echo "$INFO_JSON" > src.json.tmp
 
 # Извлекаем данные
 VERSION=$(jq -r '.version' src.json.tmp)
+FACT_VERSION=$(jq -r '.fact_version' src.json.tmp)
 LINUX_URL=$(jq -r '.linux' src.json.tmp)
 WINDOWS_URL=$(jq -r '.windows' src.json.tmp)
 
@@ -30,6 +31,7 @@ rm -f "$TEMP_W"
 cat > src.json <<EOF
 {
   "version": "$VERSION",
+  "fact_version": "$FACT_VERSION",
   "urls": {
     "linux": "$LINUX_URL",
     "windows": "$WINDOWS_URL"

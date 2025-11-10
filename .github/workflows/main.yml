@@ -149,19 +149,21 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add src.json PKGBUILD
-          git commit -m "chore: auto-update Loginom to $(jq -r .version src.json)" || echo "No changes"
+          git commit -m "chore: auto-update Loginom to $(jq -r .fact_version src.json)" || echo "No changes"
           git push
 
       - name: Create Release
         if: steps.compare.outputs.changed == 'true'
         uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Use the GitHub token provided by Actions
         with:
-          tag: "v$(jq -r .version src.json)"
-          name: "v$(jq -r .version src.json)"
-          body: "Обновление логинома до версии $(jq -r .version src.json)"
+          # tag: "v$(jq -r .fact_version src.json)"
+          name: "v$(jq -r .fact_version src.json)"
+          body: "Обновление логинома до версии $(jq -r .fact_version src.json)"
           draft: false
           artifacts: ${{ env.artifacts_list }}
           artifactContentType: application/octet-stream
-          prerelease: "v$(jq -r .version src.json) | grep -q 'rc' && echo true || echo false"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: "v$(jq -r .fact_version src.json) | grep -q 'rc' && echo true || echo false"
           allowUpdates: true
+          token: ${{ secrets.GITHUB_TOKEN }}
