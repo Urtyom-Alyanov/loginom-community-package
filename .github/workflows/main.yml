@@ -3,7 +3,7 @@ name: Auto-update Loginom download links
 
 on:
   schedule:
-    - cron: "0 */70 * * *"  # каждые 70 часов
+    - cron: "0 */72 * * *"  # каждые 72 часа
   workflow_dispatch:
 
 jobs:
@@ -19,16 +19,114 @@ jobs:
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
 
+      - name: Get old SHA256 (if exists)
+        id: old_sha
+        run: |
+          if [ -f src.json ]; then
+            OLD_SHA=$(jq -r '.sha256.linux' src.json 2>/dev/null || echo "")
+            echo "old_sha=$OLD_SHA" >> $GITHUB_OUTPUT
+          else
+            echo "old_sha=" >> $GITHUB_OUTPUT
+          fi
+
       - name: Update src.json
         run: ./update.sh
 
+      - name: Get new SHA256
+        id: new_sha
+        run: |
+          NEW_SHA=$(jq -r '.sha256.linux' src.json 2>/dev/null || echo "")
+          echo "new_sha=$NEW_SHA" >> $GITHUB_OUTPUT
+          echo "version=$(jq -r .version src.json)" >> $GITHUB_OUTPUT
+
+      - name: Compare SHA256 hashes
+        id: compare
+        run: |
+          if [ "${{ steps.old_sha.outputs.old_sha }}" != "${{ steps.new_sha.outputs.new_sha }}" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Hash changed, release will be created"
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "Hash unchanged, no release will be created"
+          fi
+
       - name: Generate PKGBUILD
+        if: steps.compare.outputs.changed == 'true'
         run: ./generate-pkgbuild.sh
 
+      - name: Install arch package tools
+        if: steps.compare.outputs.changed == 'true'
+        run: |
+          sudo apt update
+          sudo apt install -y bsdtar fakeroot binutils
+
+      - name: Build Arch Linux package
+        if: steps.compare.outputs.changed == 'true'
+        run: |
+          makepkg -sri --noconfirm
+          ARCH_PACKAGE_FILE=$(ls *.pkg.tar.zst | head -n 1)
+          echo "arch_package_file=$ARCH_PACKAGE_FILE" >> $GITHUB_ENV
+
+      - name: Download files with generic names (Linux)
+        if: steps.compare.outputs.changed == 'true'
+        run: |
+          # Create a directory for downloaded files
+          mkdir -p downloads
+          
+          # Get Linux URL from src.json
+          URL_LINUX=$(jq -r '.urls.linux' src.json)
+          FILE_EXTENSION_LINUX=$(echo "$URL_LINUX" | sed 's/.*\.\([^?&]*\).*/\1/' | sed 's/.*\///' | sed 's/[?&].*//')
+          if [ "$FILE_EXTENSION_LINUX" = "$URL_LINUX" ]; then
+            FILE_EXTENSION_LINUX="tar.gz"
+          fi
+
+          FILENAME_LINUX="generic-linux.${{ steps.new_sha.outputs.version }}.x86-64.${FILE_EXTENSION_LINUX}"
+
+          # Download the file
+          wget "$URL_LINUX" -O "downloads/$FILENAME_LINUX"
+
+      - name: Download files with generic names (Windows)
+        if: steps.compare.outputs.changed == 'true'
+        run: |
+          # Get Windows URL from src.json
+          URL_WINDOWS=$(jq -r '.urls.windows' src.json)
+          FILE_EXTENSION_WINDOWS=$(echo "$URL_WINDOWS" | sed 's/.*\.\([^?&]*\).*/\1/' | sed 's/.*\///' | sed 's/[?&].*//')
+          if [ "$FILE_EXTENSION_WINDOWS" = "$URL_WINDOWS" ]; then
+            FILE_EXTENSION_WINDOWS="zip"
+          fi
+          
+          FILENAME_WINDOWS="generic-windows.${{ steps.new_sha.outputs.version }}.x86-64.${FILE_EXTENSION_WINDOWS}"
+          wget "$URL_WINDOWS" -O "downloads/$FILENAME_WINDOWS"
+
+      - name: Prepare artifacts list
+        if: steps.compare.outputs.changed == 'true'
+        run: |
+          ARTIFACTS_LIST="downloads/generic-linux.${{ steps.new_sha.outputs.version }}.x86-64.*"
+          ARTIFACTS_LIST="$ARTIFACTS_LIST,downloads/generic-windows.${{ steps.new_sha.outputs.version }}.x86-64.*"
+          if [ -n "${{ env.arch_package_file }}" ]; then
+            ARTIFACTS_LIST="$ARTIFACTS_LIST,${{ env.arch_package_file }}"
+          fi
+          echo "artifacts_list=$ARTIFACTS_LIST" >> $GITHUB_ENV
+
       - name: Commit and push
+        if: steps.compare.outputs.changed == 'true'
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add src.json PKGBUILD
           git commit -m "chore: auto-update Loginom to $(jq -r .version src.json)" || echo "No changes"
           git push
+
+      - name: Create Release
+        if: steps.compare.outputs.changed == 'true'
+        uses: ncipollo/release-action@v1
+        with:
+          tag: "v$(jq -r .version src.json)"
+          name: "v$(jq -r .version src.json)"
+          body: "Обновление логинома до версии $(jq -r .version src.json)"
+          draft: false
+          artifacts: ${{ env.artifacts_list }}
+          artifactContentType: application/octet-stream
+          prerelease: "v$(jq -r .version src.json) | grep -q 'rc' && echo true || echo false"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          allowUpdates: true
