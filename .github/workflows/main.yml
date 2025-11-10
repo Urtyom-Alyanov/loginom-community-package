@@ -37,7 +37,7 @@ jobs:
         run: |
           NEW_SHA=$(jq -r '.sha256.linux' src.json 2>/dev/null || echo "")
           echo "new_sha=$NEW_SHA" >> $GITHUB_OUTPUT
-          echo "version=$(jq -r .version src.json)" >> $GITHUB_OUTPUT
+          echo "version=$(jq -r .fact_version src.json)" >> $GITHUB_OUTPUT
 
       - name: Compare SHA256 hashes
         id: compare
@@ -158,12 +158,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Use the GitHub token provided by Actions
         with:
-          # tag: "v$(jq -r .fact_version src.json)"
-          name: "v$(jq -r .fact_version src.json)"
-          body: "Обновление логинома до версии $(jq -r .fact_version src.json)"
+          tag: "v${{ env.version }}"
+          name: "v${{ env.version }}"
+          body: "Обновление логинома до версии ${{ env.version }}"
           draft: false
           artifacts: ${{ env.artifacts_list }}
           artifactContentType: application/octet-stream
-          prerelease: "v$(jq -r .fact_version src.json) | grep -q 'rc' && echo true || echo false"
+          prerelease: ${{ contains(env.version, 'rc') }}
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
