@@ -58,7 +58,7 @@ jobs:
         if: steps.compare.outputs.changed == 'true'
         run: |
           sudo apt update
-          sudo apt install -y bsdtar fakeroot binutils
+          sudo apt install -y libarchive-tools fakeroot binutils
 
       - name: Build Arch Linux package
         if: steps.compare.outputs.changed == 'true'
