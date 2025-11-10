@@ -19,6 +19,7 @@ package() {
  # Установка бинарника и файлов
   install -d "$pkgdir"/opt/loginom-community
   cp -r "$srcdir/loginom-community"/* "$pkgdir"/opt/loginom-community/
+  rm "$pkgdir"/opt/loginom-community/install-shortcut.sh
 
   # Символическая ссылка в PATH
   install -d "$pkgdir"/usr/bin
