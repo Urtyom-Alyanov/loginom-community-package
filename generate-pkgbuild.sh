@@ -26,9 +26,10 @@ if [[ -z "$VERSION" || -z "$URL" || -z "$SHA256" ]]; then
 fi
 
 # Подставляем в шаблон
+ESCAPED_URL = "${URL//&/\\&}"
 sed \
   -e "s|@VERSION@|$VERSION|g" \
-  -e "s|@URL@|$URL|g" \
+  -e "s|@URL@|$ESCAPED_URL|g" \
   -e "s|@SHA256@|$SHA256|g" \
   PKGBUILD.in > PKGBUILD
 
