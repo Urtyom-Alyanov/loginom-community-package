@@ -8,7 +8,7 @@
 Пакетный менеджер Nix на других дистрибутивах работает с этим приложением нормально.
 
 ## Установка
-##№ Arch Linux (MAKEPKG)
+## Arch Linux (MAKEPKG)
 ```sh
 git clone https://github.com/Urtyom-Alyanov/loginom-community-package.git
 cd loginom-community-package
