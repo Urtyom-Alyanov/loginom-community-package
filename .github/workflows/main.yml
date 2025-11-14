@@ -98,10 +98,11 @@ jobs:
 
       - name: Build Arch Linux package
         if: steps.compare.outputs.changed == 'true'
+        id: arch_package
         run: |
           makepkg --force --log --cleanbuild --noconfirm --nodeps
           ARCH_PACKAGE_FILE=$(ls *.pkg.tar.zst | head -n 1)
-          echo "arch_package_file=$ARCH_PACKAGE_FILE" >> $GITHUB_ENV
+          echo "pkg=$ARCH_PACKAGE_FILE" >> $GITHUB_OUTPUT
 
       - name: Download files with generic names (Linux)
         if: steps.compare.outputs.changed == 'true'
@@ -139,8 +140,8 @@ jobs:
         run: |
           ARTIFACTS_LIST="downloads/generic-linux.${{ steps.new_sha.outputs.version }}.x86-64.*"
           ARTIFACTS_LIST="$ARTIFACTS_LIST,downloads/generic-windows.${{ steps.new_sha.outputs.version }}.x86-64.*"
-          if [ -n "${{ env.arch_package_file }}" ]; then
-            ARTIFACTS_LIST="$ARTIFACTS_LIST,${{ env.arch_package_file }}"
+          if [ -n "${{ steps.arch_package.outputs.pkg }}" ]; then
+            ARTIFACTS_LIST="$ARTIFACTS_LIST,${{ steps.arch_package.outputs.pkg }}"
           fi
           echo "artifacts_list=$ARTIFACTS_LIST" >> $GITHUB_ENV
 
@@ -155,15 +156,13 @@ jobs:
       - name: Create Release
         if: steps.compare.outputs.changed == 'true'
         uses: ncipollo/release-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Use the GitHub token provided by Actions
         with:
-          tag: "v${{ env.version }}"
-          name: "v${{ env.version }}"
-          body: "Обновление логинома до версии ${{ env.version }}"
+          tag: "v${{ steps.new_sha.outputs.version }}"
+          name: "v${{ steps.new_sha.outputs.version }}"
+          body: "Обновление логинома до версии ${{ steps.new_sha.outputs.version }}"
           draft: false
           artifacts: ${{ env.artifacts_list }}
           artifactContentType: application/octet-stream
-          prerelease: ${{ contains(env.version, 'rc') }}
+          prerelease: ${{ contains(steps.new_sha.outputs.version, 'rc') }}
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
