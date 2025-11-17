@@ -51,7 +51,6 @@ jobs:
           fi
 
       - name: Generate PKGBUILD
-        if: steps.compare.outputs.changed == 'true'
         run: ./generate-pkgbuild.sh
 
       - name: Install arch package tools
