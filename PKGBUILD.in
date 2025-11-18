@@ -1,4 +1,4 @@
-# PKGBUILD.in
+# Maintainer: artemos <urtyomalyanov@gmail.com>
 pkgname=loginom-community
 pkgver=@VERSION@
 pkgrel=1
