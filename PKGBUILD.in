@@ -6,7 +6,7 @@ pkgdesc="Loginom Community Edition — low-code data analytics platform"
 arch=('x86_64')
 url="https://loginom.ru"
 license=('custom:unfree')
-depends=('glibc' 'gtk3' 'libgl' 'libx11' 'libxss' 'nss' 'alsa-lib' 'libxcomposite' 'libxdamage')
+depends=('acl' 'alsa-lib' 'at-spi2-core' 'avahi' 'brotli' 'bzip2' 'cairo' 'curl' 'dbus' 'double-conversion' 'duktape' 'e2fsprogs' 'expat' 'fontconfig' 'freetype2' 'fribidi' 'gcc-libs' 'gdk-pixbuf2' 'glib2' 'glibc' 'glycin' 'gmp' 'gnutls' 'graphite' 'gtk3' 'harfbuzz' 'icu' 'json-glib' 'karchive5' 'kauth5' 'kbookmarks5' 'kcodecs5' 'kcompletion5' 'kconfig5' 'kconfigwidgets5' 'kcoreaddons5' 'kcrash5' 'kdbusaddons5' 'keyutils' 'kglobalaccel5' 'kguiaddons5' 'ki18n5' 'kiconthemes5' 'kio5' 'kitemviews5' 'kjobwidgets5' 'krb5' 'kservice5' 'kwidgetsaddons5' 'kwindowsystem5' 'kxmlgui5' 'lcms2' 'leancrypto' 'libcap' 'libcloudproviders' 'libcups' 'libdatrie' 'libdrm' 'libepoxy' 'libffi' 'libglvnd' 'libidn2' 'libimobiledevice' 'libimobiledevice-glue' 'libnghttp2' 'libnghttp3' 'libp11-kit' 'libplist' 'libpng' 'libproxy' 'libpsl' 'libseccomp' 'libssh2' 'libtasn1' 'libthai' 'libunistring' 'libusbmuxd' 'libx11' 'libxau' 'libxcb' 'libxcomposite' 'libxcursor' 'libxdamage' 'libxdmcp' 'libxext' 'libxfixes' 'libxi' 'libxinerama' 'libxkbcommon' 'libxml2' 'libxrandr' 'libxrender' 'md4c' 'mesa-git' 'nettle' 'nspr' 'nss' 'openssl' 'pango' 'pcre2' 'pixman' 'qt5-base' 'qt5-svg' 'qt5-wayland' 'qt5-x11extras' 'solid5' 'sqlite' 'systemd-libs' 'tinysparql' 'util-linux-libs' 'wayland' 'xcb-util-keysyms' 'xz' 'zlib-ng-compat' 'zstd')
 source=("loginom-community-@VERSION@_linux.tar.gz::@URL@")
 sha256sums=('@SHA256@')
 
