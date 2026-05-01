@@ -1,14 +1,14 @@
 # Maintainer: artemos <urtyomalyanov@gmail.com>
 pkgname=loginom-community
-pkgver=null
+pkgver=7.3.3
 pkgrel=1
 pkgdesc="Loginom Community Edition — low-code data analytics platform"
 arch=('x86_64')
 url="https://loginom.ru"
 license=('custom:unfree')
 depends=('acl' 'alsa-lib' 'at-spi2-core' 'avahi' 'brotli' 'bzip2' 'cairo' 'curl' 'dbus' 'double-conversion' 'duktape' 'e2fsprogs' 'expat' 'fontconfig' 'freetype2' 'fribidi' 'gcc-libs' 'gdk-pixbuf2' 'glib2' 'glibc' 'glycin' 'gmp' 'gnutls' 'graphite' 'gtk3' 'harfbuzz' 'icu' 'json-glib' 'karchive5' 'kauth5' 'kbookmarks5' 'kcodecs5' 'kcompletion5' 'kconfig5' 'kconfigwidgets5' 'kcoreaddons5' 'kcrash5' 'kdbusaddons5' 'keyutils' 'kglobalaccel5' 'kguiaddons5' 'ki18n5' 'kiconthemes5' 'kio5' 'kitemviews5' 'kjobwidgets5' 'krb5' 'kservice5' 'kwidgetsaddons5' 'kwindowsystem5' 'kxmlgui5' 'lcms2' 'leancrypto' 'libcap' 'libcloudproviders' 'libcups' 'libdatrie' 'libdrm' 'libepoxy' 'libffi' 'libglvnd' 'libidn2' 'libimobiledevice' 'libimobiledevice-glue' 'libnghttp2' 'libnghttp3' 'libp11-kit' 'libplist' 'libpng' 'libproxy' 'libpsl' 'libseccomp' 'libssh2' 'libtasn1' 'libthai' 'libunistring' 'libusbmuxd' 'libx11' 'libxau' 'libxcb' 'libxcomposite' 'libxcursor' 'libxdamage' 'libxdmcp' 'libxext' 'libxfixes' 'libxi' 'libxinerama' 'libxkbcommon' 'libxml2' 'libxrandr' 'libxrender' 'md4c' 'mesa' 'nettle' 'nspr' 'nss' 'openssl' 'pango' 'pcre2' 'pixman' 'qt5-base' 'qt5-svg' 'qt5-wayland' 'qt5-x11extras' 'solid5' 'sqlite' 'systemd-libs' 'tinysparql' 'util-linux-libs' 'wayland' 'xcb-util-keysyms' 'xz' 'zlib-ng-compat' 'zstd')
-source=("loginom-community-null_linux.tar.gz::https://storage.yandexcloud.net/private-loginom-ru/LoginomCELinux/7.x/7.3/loginom-community-7.3.2.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEUdCH7bkAv88YafPx0UvQ%2F20260430%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20260430T012846Z&X-Amz-Expires=259200&X-Amz-SignedHeaders=host&response-content-disposition=attachment&X-Amz-Signature=9f1ec739967f5c03d64ab3141a5a0515a8ea176933a07a74de9845789b5ae200")
-sha256sums=('437849c06e51002eea6e9dbe6740e0539b98728b565c76e58e17a4f6a71a7868')
+source=("loginom-community-7.3.3_linux.tar.gz::https://storage.yandexcloud.net/private-loginom-ru/LoginomCELinux/7.x/7.3/loginom-community-7.3.3_linux.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEUdCH7bkAv88YafPx0UvQ%2F20260501%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20260501T013151Z&X-Amz-Expires=259200&X-Amz-SignedHeaders=host&response-content-disposition=attachment&X-Amz-Signature=c0735a1cd817f2524c8d0cc410684d2158746792aba35fed8397a0e075553f3f")
+sha256sums=('84d1101ea1228207e0657d16bfa0ca4d027e8a417f9ed4d4d884d9eda0b5d7ef')
 
 prepare() {
   # Убедимся, что исполняемый файл имеет правильные права
