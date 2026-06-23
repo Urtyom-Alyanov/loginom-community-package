@@ -1,16 +1,16 @@
 {
-  "version": "7.4.0",
-  "fact_version": "7.4.0",
+  "version": "7.4.1",
+  "fact_version": "7.4.1",
   "urls": {
-    "linux": "https://storage.yandexcloud.net/private-loginom-ru/LoginomCELinux/loginom-community-7.4.0_linux.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEUdCH7bkAv88YafPx0UvQ%2F20260622%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20260622T021503Z&X-Amz-Expires=259200&X-Amz-SignedHeaders=host&response-content-disposition=attachment&X-Amz-Signature=a7876c9ee9928cf3edc48c26eed1fdb22ff22e7f03dae18a1611259fe29fee7a",
-    "windows": "https://storage.yandexcloud.net/private-loginom-ru/LoginomCEWindows/LoginomCommunity_7.4.0_windows.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEUdCH7bkAv88YafPx0UvQ%2F20260622%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20260622T021503Z&X-Amz-Expires=259200&X-Amz-SignedHeaders=host&response-content-disposition=attachment&X-Amz-Signature=651ad1a2ef7003a035cc6c869473754ee9c440ad69b76fc216f9ed55420bd9ff"
+    "linux": "https://storage.yandexcloud.net/private-loginom-ru/LoginomCELinux/loginom-community-7.4.1_linux.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEUdCH7bkAv88YafPx0UvQ%2F20260623%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20260623T015413Z&X-Amz-Expires=259200&X-Amz-SignedHeaders=host&response-content-disposition=attachment&X-Amz-Signature=ae1a6ac3aebd60ade60e7d1711ef321200abe122aac17dcdbd1d956d8fafe7e9",
+    "windows": "https://storage.yandexcloud.net/private-loginom-ru/LoginomCEWindows/LoginomCommunity_7.4.1_windows.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEUdCH7bkAv88YafPx0UvQ%2F20260623%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20260623T015413Z&X-Amz-Expires=259200&X-Amz-SignedHeaders=host&response-content-disposition=attachment&X-Amz-Signature=efba27c704ef1b1a4e40753562b41af19f4f3690adad30cd6879e5d49538894f"
   },
   "sha256_nix": {
-    "linux": "1p4i5ffz2b170v91yxsg9k72pwcsl452r4wganl5ffdbf6dy7l1p",
-    "windows": "1ynwyzaslvifkirn0xilg8sglfvrdr5dd8yxkczzk276zfvmpksb"
+    "linux": "17bysd482g5i33xgvnfd9yb5agvl0hpjixhd8p3jikz4jxaakirm",
+    "windows": "1p7nwgv7an4zk3fcvssvl4dml0721n4328lni9wk5rimkbdph30n"
   },
   "sha256": {
-    "linux": "37d0e39b71ab3957a8558f932c0aa19af12bce4c4f771fd206272cf19d2b91dc",
-    "windows": "4bcf5bb7fbe688f93f9bdda3d64a6e793bfa347a347660739c2e6eaad5f7dcfa"
+    "linux": "35c7a95497e4cf28c7450df6282f04743f55964fcdd9fdfa18b13c8148d37e9d",
+    "windows": "160c78db9a35e632798a962231880de2005a1ba15bebcddc989f5875f6e3f6dc"
   }
 }
