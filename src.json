@@ -2,8 +2,8 @@
   "version": "7.4.3",
   "fact_version": "7.4.3",
   "urls": {
-    "linux": "https://storage.yandexcloud.net/private-loginom-ru/LoginomCELinux/loginom-community-7.4.3_linux.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEUdCH7bkAv88YafPx0UvQ%2F20261118%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20261118T044821Z&X-Amz-Expires=259200&X-Amz-SignedHeaders=host&response-content-disposition=attachment&X-Amz-Signature=185fc34df5c27b1930484b916a70b23f6dd289809fc1ef9c2454f26755ca5ca3",
-    "windows": "https://storage.yandexcloud.net/private-loginom-ru/LoginomCEWindows/LoginomCommunity_7.4.3_windows.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEUdCH7bkAv88YafPx0UvQ%2F20261118%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20261118T044821Z&X-Amz-Expires=259200&X-Amz-SignedHeaders=host&response-content-disposition=attachment&X-Amz-Signature=6e384389679932254c80612b8ccba80ca31ddc8e6141d969f086f7257af97ed6"
+    "linux": "https://storage.yandexcloud.net/private-loginom-ru/LoginomCELinux/loginom-community-7.4.3_linux.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEUdCH7bkAv88YafPx0UvQ%2F20261119%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20261119T043933Z&X-Amz-Expires=259200&X-Amz-SignedHeaders=host&response-content-disposition=attachment&X-Amz-Signature=2a981de321dce5b2a1a466f9458e5d99d0fbf0c7aa0f954eada6ec0739eb051e",
+    "windows": "https://storage.yandexcloud.net/private-loginom-ru/LoginomCEWindows/LoginomCommunity_7.4.3_windows.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEUdCH7bkAv88YafPx0UvQ%2F20261119%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20261119T043933Z&X-Amz-Expires=259200&X-Amz-SignedHeaders=host&response-content-disposition=attachment&X-Amz-Signature=3e40f9f8c6259a9347cb96d84ed9f3dafef3a711c416b36fec76525630180864"
   },
   "sha256_nix": {
     "linux": "1ykgcm5ch7d18n40l4cjld4b4sc2yh762zvr94phxd25hf5byh06",
